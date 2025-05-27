@@ -1,0 +1,214 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Button</title>
+    <style>
+        /* Styling for the link button */
+        a {
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            border: 2px solid #fefefe;
+            text-transform: uppercase;
+            color: #fefefe;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        /* Before pseudo-element for the top border */
+        a::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% - 12px);
+            background-color: #212121;
+            transition: 0.3s ease-in-out;
+            transform: scaleY(1);
+        }
+
+        /* After pseudo-element for the left border */
+        a::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: -2px;
+            height: calc(100% + 4px);
+            width: calc(100% - 12px);
+            background-color: #212121;
+            transition: 0.3s ease-in-out;
+            transform: scaleX(1);
+            transition-delay: 0.5s;
+        }
+
+        /* Hover effects: collapsing the borders */
+        a:hover::before {
+            transform: scaleY(0);
+        }
+
+        a:hover::after {
+            transform: scaleX(0);
+        }
+
+        /* Span inside anchor for proper stacking */
+        a span {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Adding some basic styling to the body for visual appeal */
+        body {
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#"><span>Get Early Access</span></a>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Style Button</title>
+    <style>
+        body {
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Button Styling */
+        button {
+            position: relative;
+            background-color: #00ff00;
+            /* Neon green for hacking feel */
+            color: #333;
+            font-weight: bold;
+            padding: 20px 40px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            /* Hide the overflow from pseudo-elements */
+            cursor: pointer;
+        }
+
+        /* Inner text link inside button */
+        button a {
+            color: inherit;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            /* Ensure it's above the pseudo-elements */
+        }
+
+        /* Adding glitch effect */
+        button a::before {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #00ff00;
+            /* Neon background for glitch effect */
+            animation: glitch 1.5s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes glitch {
+            0% {
+                left: -5px;
+                text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2), -1px -1px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            50% {
+                left: 5px;
+                text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
+            }
+
+            100% {
+                left: -5px;
+                text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2), -1px -1px 0 rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        /* Hover effect to simulate a hacking response */
+        button:hover {
+            background-color: #00cc00;
+            /* Darker neon green */
+            border-color: #ff0066;
+            /* Change border color */
+            box-shadow: 0 0 20px #00ff00, 0 0 10px #ff0066;
+            /* Neon glow on hover */
+        }
+
+        button:active {
+            transform: scale(0.98);
+            /* Slight shrink when clicked */
+        }
+
+        /* Glowing border effect */
+        button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+            background: none;
+            border: 2px solid #ff0066;
+            /* Bright purple border to simulate a hacker look */
+            box-shadow: 0 0 10px 5px #ff0066;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 0;
+        }
+
+        button:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="storeDeviceInfo()">
+        <a href="#">Get Early Access</a>
+    </button>
+
+    <script>
+        function storeDeviceInfo() {
+            alert("Storing device information...");
+            // Add your device information storage logic here.
+        }
+    </script>
+
+</body>
+
+</html>
